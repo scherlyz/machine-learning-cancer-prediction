@@ -8,7 +8,6 @@ from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 from sklearn.model_selection import train_test_split
 from sklearn.feature_selection import VarianceThreshold, SelectKBest, f_classif
 from imblearn.over_sampling import SMOTE
-from sklearn.decomposition import PCA
 
 # ========== PERSIAPAN DATA ==========
 df = pd.read_csv("risk_factors_cervical_cancer.csv")
@@ -71,7 +70,7 @@ plt.tight_layout()
 plt.show()
 
 # ========== VISUALISASI DATA TRAIN ==========
-# Ambil 2 fitur terbaik dari hasil ANOVA untuk divisualisasikan
+# Mengambil 2 fitur terbaik dari hasil ANOVA untuk divisualisasikan
 X_train_anova = X_train[:, :2]  # ambil 2 kolom pertama dari fitur hasil seleksi ANOVA
 
 plt.figure(figsize=(6, 5))
