@@ -71,19 +71,18 @@ plt.tight_layout()
 plt.show()
 
 # ========== VISUALISASI DATA TRAIN ==========
-# PCA untuk reduksi ke 2D
-pca = PCA(n_components=2, random_state=42)
-X_train_2d = pca.fit_transform(X_train)
+# Ambil 2 fitur terbaik dari hasil ANOVA untuk divisualisasikan
+X_train_anova = X_train[:, :2]  # ambil 2 kolom pertama dari fitur hasil seleksi ANOVA
 
 plt.figure(figsize=(6, 5))
-plt.scatter(X_train_2d[y_train == 0, 0], X_train_2d[y_train == 0, 1],
+plt.scatter(X_train_anova[y_train == 0, 0], X_train_anova[y_train == 0, 1],
             alpha=0.6, label='Kelas 0', c='skyblue', edgecolor='k')
-plt.scatter(X_train_2d[y_train == 1, 0], X_train_2d[y_train == 1, 1],
+plt.scatter(X_train_anova[y_train == 1, 0], X_train_anova[y_train == 1, 1],
             alpha=0.6, label='Kelas 1', c='salmon', edgecolor='k')
 
-plt.title("Visualisasi Data Train (PCA 2D)")
-plt.xlabel("Komponen PCA 1")
-plt.ylabel("Komponen PCA 2")
+plt.title("Visualisasi Data Train (2 Fitur Terbaik ANOVA)")
+plt.xlabel("Fitur 1 (ANOVA)")
+plt.ylabel("Fitur 2 (ANOVA)")
 plt.legend()
 plt.tight_layout()
 plt.show()
